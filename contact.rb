@@ -35,16 +35,9 @@ class Contact
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find (id)
-    @@contacts.each do |contact|
-      if contact.id == id
-        #if local variable contact which is contact equals id int the array it will return the defined local varialble which is called contact.
-        return  contact
+    @@contacts.find { |contact| contact.id == id }
       end
-    end
-    puts "Contact not found"
-  end
-
-
+    
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute

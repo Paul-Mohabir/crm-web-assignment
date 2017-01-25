@@ -1,6 +1,10 @@
+<link rel="stylesheet" href="style.css">
 <h1>All Contacts</h1>
-<ul>
-  <% Contact.all each do |contact| %>
-  <li><% =contact.first_name %> <% = contact.last_name %></li>
+<div class="show_contacts">
+  <% Contact.all.each do |contact| %>
+  <p><%= contact.first_name %> <%= contact.last_name %> (<%=contact.email %>)<br>
+  Delete | Edit
+  </p>
   <% end %>
 </ul>
+</div>
