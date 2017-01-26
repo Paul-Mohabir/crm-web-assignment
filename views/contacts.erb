@@ -12,7 +12,7 @@
 <div class="show_contacts">
   <% Contact.all.each do |contact| %>
   <p><a href="/contacts/<%= contact.id %>"> <%= contact.full_name  %></a> (<%=contact.email %>)<br>
-    <a href="/contacts/">Delete</a> | <a href="/contacts/<%= contact.id %>"Edit</a>
+    <a href="/contacts/">Delete</a> | <a href="/contacts/<%= contact.id %>">Edit</a>
   </p>
   <% end %>
 </ul>
