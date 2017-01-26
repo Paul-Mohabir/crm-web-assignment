@@ -1,9 +1,18 @@
 <link rel="stylesheet" href="style.css">
-<h1>All Contacts</h1>
+
+<div class="contact-count">There are
+    <p class="underline"><%= Contact.all.count %> contacts
+  </div>
+
+<form id="contact-search" class="search-form" action='/search' method='get'>
+  <input id="search" class="search-box" type="search" name="query" placeholder="Search contacts" results=5>
+  <input class="search-submit" type='submit' value='Search'>
+</form>
+
 <div class="show_contacts">
   <% Contact.all.each do |contact| %>
-  <p><%= contact.first_name %> <%= contact.last_name %> (<%=contact.email %>)<br>
-  Delete | Edit
+  <p><a href="/contacts/<%= contact.id %>"> <%= contact.full_name  %></a> (<%=contact.email %>)<br>
+    <a href="/contacts/">Delete</a> | <a href="/contacts/<%= contact.id %>"Edit</a>
   </p>
   <% end %>
 </ul>

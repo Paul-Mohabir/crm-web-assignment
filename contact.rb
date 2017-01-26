@@ -1,4 +1,9 @@
 require 'pry'
+gem 'activerecord', '=4.2.7'
+require 'active_record'
+require 'mini_record'
+
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm-web.sqlite3')
 
 class Contact
 
@@ -10,7 +15,7 @@ class Contact
   @@id = 9000
 
   # This method should initialize the contact's attributes
-  def initialize (first_name, last_name, email, note)
+  def initialize(first_name, last_name, email, note)
     @id = @@id
     @first_name = first_name
     @last_name = last_name
@@ -20,7 +25,7 @@ class Contact
 
   # This method should call the initializer,
   # store the newly created contact, and then return it
-  def self.create (first_name, last_name, email, note)
+  def self.create(first_name, last_name, email, note)
     new_contact = self.new(first_name, last_name, email, note)
     @@contacts << new_contact
     @@id += 1
@@ -34,10 +39,10 @@ class Contact
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find (id)
+  def self.find(id)
     @@contacts.find { |contact| contact.id == id }
-      end
-    
+  end
+
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
